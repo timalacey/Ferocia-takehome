@@ -12,6 +12,9 @@ export default function App() {
   const [error, setError] = React.useState('');
   const [state, setState] = React.useState({
     P: INPUTS.P.defaultValue,
+    r: INPUTS.r.defaultValue,
+    n: INPUTS.n.defaultValue,
+    t: INPUTS.t.defaultValue,
   })
 
   function onFieldChange(event) {
@@ -28,8 +31,9 @@ export default function App() {
       [event.target.name]: event.target.value,
     })
   }
-
-  const finalBalance = calculateTermDepositReturn(state.P, INPUTS.r.defaultValue, INPUTS.n.defaultValue, INPUTS.t.defaultValue);
+  
+  //TODO if `error` is truthy, we don't need to calculate finalBalance
+  const finalBalance = calculateTermDepositReturn(state.P, state.r, state.n, state.t);
 
   return (
     <>
@@ -43,14 +47,42 @@ export default function App() {
           name="P"
           type="number"
         />
-        <label> in a Term Depsosit at {INPUTS.r.defaultValue}%</label>
-        <label> paid {(INPUTS.n.defaultValue > 0) ? `${INPUTS.n.defaultValue} times per year`: 'at maturity'}</label>
-        <label> for {INPUTS.t.defaultValue} months</label>
+        <label> in a Term Depsosit</label>
+        <br />
+        <label>at an interest rate of </label>
+        <input
+          defaultValue={state.r}
+          max={INPUTS.r.max}
+          min={INPUTS.r.min}
+          name="r"
+          type="number"
+        />
+        <label>% per annum</label>
+        <br />
+        <label>paid </label>
+        <input
+          defaultValue={state.n}
+          max={INPUTS.n.max}
+          min={INPUTS.n.min}
+          name="n"
+          type="number"
+        />
+        <label> {(state.n > 0) ? ' times per year' : ' at maturity'}</label>
+        <br />
+        <label>over </label>
+        <input
+          defaultValue={state.t}
+          max={INPUTS.t.max}
+          min={INPUTS.t.min}
+          name="t"
+          type="number"
+        />
+        <label> months</label>
         <br />
         <br />
       </form>
       {error && <label>{error}</label>}
-      {(!error && finalBalance > 0) && <label>
+      {!error && finalBalance > 0 && <label>
         will return {finalBalance.toLocaleString('en-AU', { style: 'currency', currency: 'AUD' })}
       </label>
       }
