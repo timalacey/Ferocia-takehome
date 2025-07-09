@@ -32,9 +32,9 @@ export default function App() {
           name="P"
           type="number"
         />
-        <label>
-          in a Term Depsosit at {INPUTS.r.defaultValue}% paid {INPUTS.n.defaultValue} times per year for {INPUTS.t.defaultValue} months
-        </label>
+        <label> in a Term Depsosit at {INPUTS.r.defaultValue}%</label>
+        <label> paid {(INPUTS.n.defaultValue > 0) ? `${INPUTS.n.defaultValue} times per year`: 'at maturity'}</label>
+        <label> for {INPUTS.t.defaultValue} months</label>
         <br />
         <br />
       </form>
