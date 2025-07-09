@@ -9,11 +9,20 @@ const INPUTS = {
 };
 
 export default function App() {
+  const [error, setError] = React.useState('');
   const [state, setState] = React.useState({
     P: INPUTS.P.defaultValue,
   })
 
   function onFieldChange(event) {
+    if (!event.target.value ||
+      event.target.value < INPUTS[event.target.name].min ||
+      event.target.value > INPUTS[event.target.name].max) {
+      setError(`${event.target.name} must be between ${INPUTS[event.target.name].min} and ${INPUTS[event.target.name].max}.`);
+      return;
+    }
+
+    setError('');
     setState({
       ...state,
       [event.target.name]: event.target.value,
@@ -29,6 +38,8 @@ export default function App() {
         <label>$</label>
         <input
           defaultValue={state.P}
+          max={INPUTS.P.max}
+          min={INPUTS.P.min}
           name="P"
           type="number"
         />
@@ -38,7 +49,8 @@ export default function App() {
         <br />
         <br />
       </form>
-      {(finalBalance > 0) && <label>
+      {error && <label>{error}</label>}
+      {(!error && finalBalance > 0) && <label>
         will return {finalBalance.toLocaleString('en-AU', { style: 'currency', currency: 'AUD' })}
       </label>
       }
