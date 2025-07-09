@@ -6,7 +6,7 @@
  * @param {number} tMonths - investment term in months e.g. 36 for 3 years
  * @returns {number} final balance
  */
-export default function calculateTermDepositReturn(P, r, n, tMonths) {    
+export default function calculateTermDepositBalance(P, r, n, tMonths) {    
     const t = tMonths / 12; // standardize to years
 
     let periodsPerYear = n;

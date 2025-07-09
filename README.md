@@ -25,7 +25,7 @@ I have intentionally included TODO comments to highlight the improvements I woul
 Design decisions:
 
 1. I prefer realtime feedback on my input fields, so I opted to avoid a Submit button.
-2. In `calculateTermDepositReturn()` to handle a divide by 0 check and the "paid at maturity" requirement, I interpreted an input of `n=0` as "paid at maturity".
+2. In `calculateTermDepositBalance()` to handle a divide by 0 check and the "paid at maturity" requirement, I interpreted an input of `n=0` as "paid at maturity".
 
 Assumptions:
 
