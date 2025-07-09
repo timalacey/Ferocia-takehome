@@ -11,12 +11,12 @@
 ## Run
 
 `npm run dev`
+Click localhost link to open UI in browser, see screenshot
+![Screenshot of expected output](expectedOutput.png)
 
 ## Watch tests
 
 `npm run watch`
-
-
 
 ## Notes
 
