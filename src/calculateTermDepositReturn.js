@@ -17,6 +17,6 @@ export default function calculateTermDepositReturn(P, r, n, tMonths) {
 
     const finalBalance = P * (1 + (r / 100) / periodsPerYear) ** (periodsPerYear * t);
 
-    // Assumption: when interest is rounded to 2 decimal placesm then paid 5 rounds up, 4 rounds down
+    // Assumption: when interest is rounded to 2 decimal places 5 rounds up, 4 rounds down
     return Math.round(finalBalance * 100) / 100
 }
