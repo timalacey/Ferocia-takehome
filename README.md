@@ -10,8 +10,8 @@
 
 ## Run
 
-`npm run dev`
-Click localhost link to open UI in browser, see screenshot
+1. `npm run dev`
+2. Click localhost link to open UI in browser, see screenshot
 ![Screenshot of expected output](expectedOutput.png)
 
 ## Watch tests
