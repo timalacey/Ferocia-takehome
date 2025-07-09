@@ -18,4 +18,6 @@
 
 ---
 
+I have intentionally included TODO comments to highlight the improvements I would do if this were to progress further.
+
 👋 Check out [Tim's LinkedIn](https://www.linkedin.com/in/timalacey/)

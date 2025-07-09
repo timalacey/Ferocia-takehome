@@ -35,6 +35,8 @@ export default function App() {
   //TODO if `error` is truthy, we don't need to calculate finalBalance
   const finalBalance = calculateTermDepositReturn(state.P, state.r, state.n, state.t);
 
+  //TODO split the Form component to a separate file
+  //TODO make input for `n` a dropdown list of discrete values, as 7, 9 or 11 times per payment periods per year is not valid
   return (
     <>
       <h1>Tim Lacey's Term Deposit Calculator for Ferocia</h1>
